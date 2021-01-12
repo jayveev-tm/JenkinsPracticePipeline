@@ -1,12 +1,12 @@
 pipeline{
     agent any
     stages{
-        environment{
-            ACCESS_KEY  = credentials('AWS_AK')
-            SECRET_KEY  = credentials('AWS_SK')
-            REGION      = credentials('AWS_REGION')
-        }
         stage("LogIn"){
+            environment{
+                ACCESS_KEY  = credentials('AWS_AK')
+                SECRET_KEY  = credentials('AWS_SK')
+                REGION      = credentials('AWS_REGION')
+            }
             steps{
                 sh './login.sh'
             }
